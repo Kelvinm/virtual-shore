@@ -54,7 +54,7 @@ product_manager = AssistantAgent(
 # Initialize the UserProxyAgent
 user_proxy = UserProxyAgent(
     name="User",
-    human_input_mode="TERMINATE",
+    human_input_mode="ALWAYS",
     max_consecutive_auto_reply=10,
     is_termination_msg=lambda x: x.get("content", "").rstrip().endswith("TERMINATE"),
     code_execution_config={"work_dir": "coding", "use_docker": False},
@@ -72,11 +72,17 @@ manager = GroupChatManager(groupchat=groupchat, llm_config=llm_config)
 
 # Example task initiation
 task = """
-Please create a RESTful API for a user management system with the following requirements:
-1. User registration and authentication
-2. Profile management
-3. Role-based access control
-Let's discuss the implementation approach and technical specifications.
+Please create a RESTful API for a financial calendar service with the following requirements:
+1. written in python
+2. at least 80% test coverage
+3. endpoint returns holidays for a given country
+4. allows adding, updating, and deleting holidays
+5. endpoint that returns a boolean is_holiday for a given dates
+6. uses fastapi
+7. uses a sqlite database
+8. uses the coding directory for the project
+9. terminates the conversation after completion
+10. the only role of the product manager is to provide feedback on the written back end service and make sure it is on track for what a financial institution would need.  Please make sure you are not discussing best practice and other things that are not directly related to the task at hand.
 """
 
 # Start the conversation

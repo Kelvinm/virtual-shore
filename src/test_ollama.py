@@ -16,7 +16,7 @@ try:
     llm_config = {
         "api_type": "ollama",
         "api_base": "http://localhost:11434/api",
-        "api_key": "ollama",  # Adjust if your API requires a different key
+        "api_key": "ollama",  
         "model": "llama3.1:latest",
         "temperature": 0.7,
     }

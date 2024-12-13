@@ -16,8 +16,6 @@ llm_config = {
 }
 
 
-
-
 # Back-End Developer
 product_manager_prompt = """
 Role Description:
